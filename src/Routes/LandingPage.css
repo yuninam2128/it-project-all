@@ -1,0 +1,207 @@
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+.price{
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+gap: 60px;
+
+position: absolute;
+width: 292px;
+height: 22px;
+left: calc(50% - 292px/2 + 324.5px);
+top: 16.5px;
+}
+
+.pricetext{
+width: 64px;
+height: 22px;
+
+font-family: 'Open Sans';
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 22px;
+/* 상자 높이와 동일 */
+color: #262626;
+
+/* 내부 오토레이아웃 */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin-left: 150px;
+}
+
+
+.logintext{/* 로그인 */
+
+width: 45px;
+height: 22px;
+
+font-family: 'Open Sans';
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 22px;
+/* 상자 높이와 동일 */
+
+color: #262626;
+/* 내부 오토레이아웃 */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+}
+
+.signuptext {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 8px;
+
+  position: absolute;
+  width: 162px;
+  height: 30px;
+  left: 1205px;
+  top: 10px;
+
+  background: #141414;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+
+  
+
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+
+  color: #FFFFFF;
+  text-decoration: none;
+  margin-left: 120px;
+}
+
+
+.barheader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+  height: 60px;
+
+  background: #FFFFFF;
+  position: fixed; top: 0; left: 0;
+  z-index: 10;
+}
+
+.bigtext{/* 웹서비스 핵심 카피라이팅 */
+
+width: 472px;
+height: 140px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 600;
+font-size: 50px;
+line-height: 140%;
+/* 또는 70px */
+color: #FFFFFF;
+
+flex: none;
+order: 0;
+flex-grow: 0;
+
+margin-top: 300px;
+margin-left: 200px;
+}
+
+.signupbutton{
+/* Button component */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 10px 8px;
+
+width: 162px;
+height: 40px;
+
+background: rgba(255, 255, 255, 0.27);
+border-radius: 30px;
+flex: none;
+order: 1;
+flex-grow: 0;
+margin-left: 200px;
+}
+
+.signupbuttonText{/* Button */
+
+width: 79px;
+height: 24px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 20px;
+line-height: 24px;
+
+color: #FFFFFF;
+
+flex: none;
+order: 0;
+flex-grow: 0;
+}
+
+
+/* 이러한 효과를 경험할 수 있으실 겁니다. */
+.text1{
+position: absolute;
+width: 647px;
+height: 56px;
+left: 413px;
+top: 1932px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 600;
+font-size: 40px;
+line-height: 140%;
+/* 상자 높이와 동일 또는 56px */
+text-align: center;
+
+color: #FFFFFF;
+margin-bottom: 100px;
+}
+
+/* Banner heading 11 */
+.BannerHeading{
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 40px;
+
+position: absolute;
+width: 472px;
+height: 291px;
+left: 140px;
+top: 278px;
+}
+
+/* Rectangle 9002 */
+.Background{
+position: relative;
+width: 100%;
+min-height: 100vh; 
+overflow-x: hidden;
+background: linear-gradient(180deg, #0B1138 0%, #5970FF 100%);
+}
