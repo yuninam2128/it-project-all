@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState, useCallback } from "react";
-import Subtask from "../components/Subtask";
+// import Subtask from "../components/Subtask";
 import SubtaskForm from "../components/SubtaskForm";
 import ReactFlow, {
   useNodesState,
@@ -8,7 +8,7 @@ import ReactFlow, {
   addEdge,
 } from "reactflow";
 import "reactflow/dist/style.css";
-// import "./Mindmap.css";
+import "./Mindmap.css";
 
 function Detail() {
   const { id } = useParams();
@@ -107,35 +107,45 @@ function Detail() {
   const handleAddSubtask = (newSubtask) => {
     const updated = {
       ...project,
-      subtasks: [...(project.subtasks || []), { id: Date.now(), ...newSubtask }],
+      subtasks: [...(project.subtasks || []), newSubtask],
     };
     setProject(updated);
     updateProjectInStorage(updated);
     setShowForm(false);
   };
 
-  const handleAddNode = () => {
+  const handleAddNode = (newSubtask) => {
     const newId = (nodes.length + 1).toString();
+    console.log(newSubtask.id);
 
     const newNode = {
       id: newId,
       type: "default",
-      data: { label: project.subtasks.title},
+      data: { label: newSubtask.title },
       position: {
         x: Math.random() * 500,
         y: Math.random() * 300,
       },
       className: "my-node",
     };
+    console.log(newNode);
 
     const newEdge = {
       id: `e-center-${newId}`,
-      source: project?.title || "center",
+      source: "center",
       target: newId,
     };
+    console.log(newEdge);
 
     setNodes((nds) => [...nds, newNode]);
     setEdges((eds) => [...eds, newEdge]);
+  };
+
+  const handleSubmitBoth = (newSubtask) => {
+    const newId = Date.now();
+    const newSubtaskWithId = { id: newId, ...newSubtask };
+    handleAddSubtask(newSubtaskWithId);
+    handleAddNode(newSubtaskWithId);
   };
 
   if (!project) return <div>Loading...</div>;
@@ -148,6 +158,13 @@ function Detail() {
       <h2>{project.progress}%</h2>
       <button onClick={() => 
         setShowForm(true)}>노드 추가</button>
+      
+      {showForm && (
+        <SubtaskForm
+          onSubmit={handleSubmitBoth}
+          onClose={() => setShowForm(false)}
+        />
+      )}
 
       <ReactFlow
         nodes={nodes}
@@ -158,13 +175,6 @@ function Detail() {
         onNodeClick={onNodeClick}
         fitView
       />
-
-      {showForm && (
-        <SubtaskForm
-          onSubmit={handleAddSubtask}
-          onClose={() => setShowForm(false)}
-        />
-      )}
     </div>
   );
 }
