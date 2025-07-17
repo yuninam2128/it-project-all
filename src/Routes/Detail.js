@@ -91,12 +91,12 @@ function Detail() {
   const onNodeClick = useCallback(
     (event, node) => {
       if (node.id !== CENTER_NODE_ID) {
-        navigate(`/page/${node.id}`);
+        navigate(`/project/${project.id}/${node.id}`);
       } else {
         alert("페이지 정보가 없습니다.");
       }
     },
-    [navigate, CENTER_NODE_ID]
+    [navigate, CENTER_NODE_ID, project]
   );
 
   const onConnect = useCallback(
